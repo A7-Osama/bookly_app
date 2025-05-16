@@ -51,8 +51,8 @@ class VListViewItem extends StatelessWidget {
             padding: const EdgeInsets.all(24.0),
             child: Column(
               children: [
-                // Text('Title'),
-                // Text('Title'),
+                Text('Title'),
+                Text('Title'),
                 /* Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

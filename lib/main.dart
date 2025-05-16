@@ -1,8 +1,8 @@
-import 'package:bookly_app/constants.dart';
+import 'package:bookly_app/core/utils/gt_sectra_fine_theme.dart';
+import 'package:bookly_app/core/utils/montserrat_theme.dart';
 import 'package:bookly_app/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const BooklyApp());
@@ -15,11 +15,15 @@ class BooklyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: kPrimaryColor,
-        textTheme: GoogleFonts.robotoTextTheme(ThemeData.dark().textTheme),
-      ),
+      theme: ThemeData.dark().copyWith(textTheme: gtSectraFineTheme()),
       home: const SplashView(),
     );
   }
 }
+/*
+TextTheme(
+  bodyText1: GoogleFonts.montserratAlternates(
+    textStyle: TextStyle(fontFamily: 'DefaultFallbackFont'),
+  ),
+),
+*/ 
