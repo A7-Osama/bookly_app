@@ -1,4 +1,3 @@
-import 'package:bookly_app/core/utils/gt_sectra_fine_theme.dart';
 import 'package:bookly_app/core/utils/montserrat_theme.dart';
 import 'package:bookly_app/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
