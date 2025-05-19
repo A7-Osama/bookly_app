@@ -50,9 +50,11 @@ class BestSellerSliverListItem extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 3),
-                  const Text(
+                  Text(
                     'J.K.  Rowling',
-                    style: Styles.textStyle14,
+                    style: Styles.textStyle14.copyWith(
+                      color: Colors.white.withAlpha(128),
+                    ),
                     overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 3),
