@@ -1,8 +1,8 @@
-import 'package:bookly_app/features/home/presentation/views/widgets/h_list_view_item.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/featured_books_tem.dart';
 import 'package:flutter/cupertino.dart';
 
-class HListViewBuilder extends StatelessWidget {
-  const HListViewBuilder({super.key});
+class FeaturedBooksListBuilder extends StatelessWidget {
+  const FeaturedBooksListBuilder({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class HListViewBuilder extends StatelessWidget {
         itemBuilder: (context, index) {
           return const Padding(
             padding: EdgeInsets.symmetric(horizontal: 8.0),
-            child: HListViewItem(),
+            child: FeaturedBooksItem(),
           );
         },
       ),

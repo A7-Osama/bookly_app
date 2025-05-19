@@ -1,8 +1,8 @@
-import 'package:bookly_app/features/home/presentation/views/widgets/v_list_view_item.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/best_seller_sliver_list_item.dart';
 import 'package:flutter/material.dart';
 
-class VSliverListBuilder extends StatelessWidget {
-  const VSliverListBuilder({super.key, required this.childCount});
+class BestSellerSliverList extends StatelessWidget {
+  const BestSellerSliverList({super.key, required this.childCount});
   final int childCount;
 
   @override
@@ -11,7 +11,7 @@ class VSliverListBuilder extends StatelessWidget {
       delegate: SliverChildBuilderDelegate(
         (context, index) => const Padding(
           padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 30),
-          child: VListViewItem(),
+          child: BestSellerSliverListItem(),
         ),
         childCount: childCount,
       ),
