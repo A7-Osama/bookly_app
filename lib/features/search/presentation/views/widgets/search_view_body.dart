@@ -1,3 +1,5 @@
+import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/book_sliver_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:bookly_app/features/search/presentation/views/widgets/search_text_field.dart';
 
@@ -6,15 +8,47 @@ class SearchViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        //
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30.0),
-          child: const SearchTextField(),
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 30.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Keeping the search field fixed at the top
+          SearchTextField(),
+          SizedBox(height: 16),
+          // Container(height: 10, color: kPrimaryColor),
+          // const SizedBox(height: 10), // Optional spacing
+          // Wrapping the list in Expanded to ensure it takes remaining space and scrolls
+          Expanded(
+            child: CustomScrollView(
+              slivers: [
+                SliverToBoxAdapter(
+                  child: Text('Search Results', style: Styles.textStyle18),
+                ),
+                SearchResultSliverList(childCount: 20),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class SearchResultSliverList extends StatelessWidget {
+  const SearchResultSliverList({super.key, required this.childCount});
+  final int childCount;
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverList(
+      delegate: SliverChildBuilderDelegate(
+        (context, index) => const Padding(
+          padding: EdgeInsets.symmetric(vertical: 10.0),
+          child: BookSliverListItem(),
         ),
-        //
-      ],
+        childCount: childCount,
+      ),
     );
   }
 }

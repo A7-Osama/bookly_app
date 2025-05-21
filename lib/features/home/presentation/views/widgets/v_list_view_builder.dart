@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/home/presentation/views/widgets/best_seller_sliver_list_item.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/book_sliver_list_item.dart';
 import 'package:flutter/cupertino.dart';
 
 class VListViewBuilder extends StatelessWidget {
@@ -19,7 +19,7 @@ class VListViewBuilder extends StatelessWidget {
       itemBuilder: (context, index) {
         return const Padding(
           padding: EdgeInsets.symmetric(vertical: 10.0),
-          child: BestSellerSliverListItem(),
+          child: BookSliverListItem(),
         );
       },
     );
