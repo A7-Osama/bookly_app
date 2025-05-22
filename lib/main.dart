@@ -23,11 +23,10 @@ class BooklyApp extends StatelessWidget {
   }
 }
 
-
 /*
 TextTheme(
   bodyText1: GoogleFonts.montserratAlternates(
     textStyle: TextStyle(fontFamily: 'DefaultFallbackFont'),
   ),
 ),
-*/ 
+*/

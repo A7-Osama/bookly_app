@@ -1,5 +1,5 @@
 import 'package:bookly_app/core/utils/styles.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/book_sliver_list_item.dart';
+import 'package:bookly_app/features/search/presentation/views/widgets/search_result_sliver_list.dart';
 import 'package:flutter/material.dart';
 import 'package:bookly_app/features/search/presentation/views/widgets/search_text_field.dart';
 
@@ -30,24 +30,6 @@ class SearchViewBody extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class SearchResultSliverList extends StatelessWidget {
-  const SearchResultSliverList({super.key, required this.childCount});
-  final int childCount;
-
-  @override
-  Widget build(BuildContext context) {
-    return SliverList(
-      delegate: SliverChildBuilderDelegate(
-        (context, index) => const Padding(
-          padding: EdgeInsets.symmetric(vertical: 10.0),
-          child: BookSliverListItem(),
-        ),
-        childCount: childCount,
       ),
     );
   }

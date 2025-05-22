@@ -34,12 +34,8 @@ class HomeViewBody extends StatelessWidget {
   }
 }
 
-
-    //You can use this instead of VSliverListBuilder, but
-    //it wont display all the items 
-  // const SliverFillRemaining(
-  //   child: Padding(padding: kPadding, child: VListViewBuilder()),
-  // ),
-
-
-
+//You can use this instead of VSliverListBuilder, but
+//it wont display all the items
+// const SliverFillRemaining(
+//   child: Padding(padding: kPadding, child: VListViewBuilder()),
+// ),
