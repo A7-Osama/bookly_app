@@ -42,9 +42,6 @@ class ServerFailure extends Failures {
         return ServerFailure(
           'An unknown error occurred: ${dioException.message}',
         );
-
-      default:
-        return ServerFailure('Oops!');
     }
   }
 
