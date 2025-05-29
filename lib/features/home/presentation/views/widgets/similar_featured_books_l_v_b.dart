@@ -14,7 +14,10 @@ class SimilarFeaturedBooksLVB extends StatelessWidget {
         itemBuilder: (context, index) {
           return const Padding(
             padding: EdgeInsets.symmetric(horizontal: 6.0),
-            child: CustomBookImage(),
+            child: CustomBookImage(
+              imgURL:
+                  'https://th.bing.com/th/id/OIF.YVwDt9Wk5eQtHbD2qmu8sw?rs=1&pid=ImgDetMain',
+            ),
           );
         },
       ),
