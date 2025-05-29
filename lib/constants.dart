@@ -5,3 +5,4 @@ const kTransitionDuration = Duration(milliseconds: 250);
 const kGTSectraFine = 'GT Sectra Fine';
 const kPadding = EdgeInsets.symmetric(horizontal: 30.0);
 const kBaseUrl = 'https://www.googleapis.com/books/v1/';
+const kCustomFailureWidgetText = 'The Hell Is going on, Man?!';
