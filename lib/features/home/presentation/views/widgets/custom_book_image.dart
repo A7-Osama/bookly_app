@@ -1,4 +1,6 @@
 // import 'package:bookly_app/core/utils/assets_data.dart';
+import 'package:bookly_app/core/widgets/error_image.dart';
+import 'package:bookly_app/core/widgets/place_holder_image.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +12,7 @@ class CustomBookImage extends StatelessWidget {
     return ClipRRect(
       borderRadius: const BorderRadius.all(Radius.circular(16)),
       child: AspectRatio(
-        aspectRatio: 2.4 / 3.7,
+        aspectRatio: 2.7 / 4,
         child: CachedNetworkImage(
           fit: BoxFit.fill,
           imageUrl: imgURL,
@@ -18,34 +20,6 @@ class CustomBookImage extends StatelessWidget {
           errorWidget: (context, url, error) => const PlaceHolderImage(),
         ),
       ),
-    );
-  }
-}
-
-class PlaceHolderImage extends StatelessWidget {
-  const PlaceHolderImage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Opacity(opacity: 0.2, child: Container(color: Colors.white)),
-        Center(child: Icon(Icons.question_mark_outlined, size: 70)),
-      ],
-    );
-  }
-}
-
-class ErrorImage extends StatelessWidget {
-  const ErrorImage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Opacity(opacity: 0.2, child: Container(color: Colors.white)),
-        const Center(child: CircularProgressIndicator()),
-      ],
     );
   }
 }

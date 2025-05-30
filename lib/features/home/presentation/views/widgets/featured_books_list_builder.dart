@@ -1,4 +1,4 @@
-import 'package:bookly_app/constants.dart';
+// import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_image.dart';
@@ -23,7 +23,9 @@ class FeaturedBooksListBuilder extends StatelessWidget {
                 return Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8.0),
                   child: CustomBookImage(
-                    imgURL: state.books[index].volumeInfo.imageLinks.thumbnail,
+                    imgURL:
+                        state.books[index].volumeInfo.imageLinks?.thumbnail ??
+                        '',
                   ),
                 );
               },
@@ -44,7 +46,24 @@ class CustomFailureWidget extends StatelessWidget {
   final String errMsg;
   @override
   Widget build(BuildContext context) {
-    return const Text(kCustomFailureWidgetText, style: Styles.textStyle18);
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30.0),
+          child: Container(
+            height: 100,
+            width: 400,
+            padding: const EdgeInsets.all(30),
+            decoration: BoxDecoration(
+              color: Colors.white10,
+              borderRadius: BorderRadius.circular(16),
+            ),
+          ),
+        ),
+        Center(child: Text(errMsg, style: Styles.textStyle18)),
+      ],
+    );
   }
 }
 

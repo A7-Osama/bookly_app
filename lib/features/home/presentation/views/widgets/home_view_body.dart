@@ -28,7 +28,7 @@ class HomeViewBody extends StatelessWidget {
             ],
           ),
         ),
-        BookSliverList(childCount: 30),
+        const BookSliverList(),
       ],
     );
   }
