@@ -9,5 +9,5 @@ const kCustomFailureWidgetText =
     'Oops! Something went wrong, please try again later.';
 const kCustomFailureWidgetImg =
     'https://th.bing.com/th/id/OIF.YVwDt9Wk5eQtHbD2qmu8sw?rs=1&pid=ImgDetMain';
-const kHomeViewQone = 'featured';
-const kHomeViewQtwo = 'newest';
+const kHomeViewQone = 'novel';
+const kHomeViewQtwo = 'Love';

@@ -8,18 +8,21 @@ class CustomButton extends StatelessWidget {
     required this.textColor,
     required this.borderRadius,
     required this.text,
+    required this.onPressed,
     this.fontSize,
   });
   final Color backgroundColor, textColor;
   final BorderRadius borderRadius;
   final String text;
   final double? fontSize;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 48,
       child: TextButton(
-        onPressed: () {},
+        onPressed: onPressed,
+        // clipBehavior: Clip.antiAlias,
         style: TextButton.styleFrom(
           elevation: 1,
           backgroundColor: backgroundColor,
@@ -27,7 +30,7 @@ class CustomButton extends StatelessWidget {
         ),
         child: Text(
           text,
-          style: Styles.textStyle18.copyWith(
+          style: Styles.textStyle16.copyWith(
             color: textColor,
             fontWeight: FontWeight.w600,
             fontSize: fontSize,
