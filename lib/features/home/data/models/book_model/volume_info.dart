@@ -1,3 +1,4 @@
+import 'package:bookly_app/constants.dart';
 import 'package:equatable/equatable.dart';
 
 import 'image_links.dart';
@@ -97,7 +98,12 @@ class VolumeInfo extends Equatable {
     'allowAnonLogging': allowAnonLogging,
     'contentVersion': contentVersion,
     'panelizationSummary': panelizationSummary?.toJson(),
-    'imageLinks': imageLinks?.toJson() ?? '',
+    'imageLinks':
+        imageLinks?.toJson() ??
+        const ImageLinks(
+          smallThumbnail: kCustomFailureWidgetImg,
+          thumbnail: kCustomFailureWidgetImg,
+        ),
     'language': language,
     'previewLink': previewLink,
     'infoLink': infoLink,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 TextTheme montserratTheme() {
-  return TextTheme(
+  return const TextTheme(
     displayLarge: TextStyle(fontFamily: 'Montserrat'),
     displayMedium: TextStyle(fontFamily: 'Montserrat'),
     displaySmall: TextStyle(fontFamily: 'Montserrat'),

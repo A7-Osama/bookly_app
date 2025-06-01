@@ -10,7 +10,7 @@ class SearchTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 16.0),
       child: TextField(
-        style: TextStyle(color: Colors.black),
+        style: const TextStyle(color: Colors.black),
         enabled: true,
         onChanged: (data) {}, // => _updateCityName(context, data),
         onSubmitted: (value) {}, //async => await _weatherFetch(context, value),
@@ -22,9 +22,9 @@ class SearchTextField extends StatelessWidget {
             //   context,
             //   BlocProvider.of<WeatherCubit>(context).cityName ?? '',
             // ),
-            child: Opacity(
+            child: const Opacity(
               opacity: 0.6,
-              child: const Icon(
+              child: Icon(
                 FontAwesomeIcons.magnifyingGlass,
                 size: 22,
                 color: kPrimaryColor,
@@ -55,7 +55,7 @@ class SearchTextField extends StatelessWidget {
   OutlineInputBorder border() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(16),
-      borderSide: BorderSide(
+      borderSide: const BorderSide(
         color: kPrimaryColor,
         width: 2,
         style: BorderStyle.solid,

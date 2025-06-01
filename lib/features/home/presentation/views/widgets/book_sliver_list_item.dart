@@ -14,14 +14,16 @@ class BookSliverListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kBookDetailsView);
+        GoRouter.of(context).push(AppRouter.kBookDetailsView, extra: bookModel);
       },
       child: SizedBox(
         height: 125,
         child: Row(
           children: [
             CustomBookImage(
-              imgURL: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
+              imgURL:
+                  bookModel.volumeInfo.imageLinks?.thumbnail ??
+                  kCustomFailureWidgetImg,
             ),
             const SizedBox(width: 30),
             Expanded(
@@ -31,7 +33,7 @@ class BookSliverListItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * .55,
                     child: Text(
-                      bookModel.volumeInfo.title!,
+                      bookModel.volumeInfo.title ?? 'Unknown',
                       // 'Harry Potter And The Goblet of Fire',
                       // textAlign: TextAlign.center,
                       style: Styles.textStyle20.copyWith(
@@ -44,7 +46,7 @@ class BookSliverListItem extends StatelessWidget {
                   const SizedBox(height: 3),
                   // Spacer(flex: 1),
                   Text(
-                    bookModel.volumeInfo.authors.toString(),
+                    bookModel.volumeInfo.authors?.toString() ?? 'Unknown',
                     // 'J.K.  Rowling',
                     style: Styles.textStyle14.copyWith(
                       color: Colors.white.withAlpha(128),
@@ -52,7 +54,7 @@ class BookSliverListItem extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 3),
-                  Spacer(),
+                  const Spacer(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

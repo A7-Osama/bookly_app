@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 TextTheme gtSectraFineTheme() {
-  return TextTheme(
+  return const TextTheme(
     displayLarge: TextStyle(fontFamily: 'GT Sectra Fine'),
     displayMedium: TextStyle(fontFamily: 'GT Sectra Fine'),
     displaySmall: TextStyle(fontFamily: 'GT Sectra Fine'),

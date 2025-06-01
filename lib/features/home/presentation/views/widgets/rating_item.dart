@@ -13,9 +13,9 @@ class RatingItem extends StatelessWidget {
     return Row(
       mainAxisAlignment: mainAxisAlignment,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(right: 6.3),
-          child: const Icon(
+        const Padding(
+          padding: EdgeInsets.only(right: 6.3),
+          child: Icon(
             FontAwesomeIcons.solidStar,
             color: Color(0xffFFDD4F),
             size: 14,

@@ -37,22 +37,3 @@ class CustomButton extends StatelessWidget {
     );
   }
 }
-
-/* 
-GestureDetector(
-      onTap: () {},
-      child: Container(
-        height: 100,
-        width: 100,
-        decoration: BoxDecoration(
-          color: backgroundColor,
-          borderRadius: borderRadius,
-        ),
-        child: Text(
-          'data',
-          style: TextStyle(color: textColor),
-          textAlign: TextAlign.center,
-        ),
-      ),
-    );
-*/

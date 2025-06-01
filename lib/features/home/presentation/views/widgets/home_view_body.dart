@@ -8,34 +8,32 @@ import 'package:flutter/material.dart';
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
 
+  // This widget is the body of the home view, which includes a custom app bar,
+  // a list of featured books, and a sliver list of the newest books.
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      physics: const BouncingScrollPhysics(),
+    return const CustomScrollView(
+      physics: BouncingScrollPhysics(),
       slivers: [
         SliverToBoxAdapter(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Padding(padding: kPadding, child: CustomAppBar()),
-              const FeaturedBooksListBuilder(),
-              const SizedBox(height: 50),
-              const Padding(
+              Padding(padding: kPadding, child: CustomAppBar()),
+              FeaturedBooksListBuilder(),
+              SizedBox(height: 50),
+              Padding(
                 padding: EdgeInsets.only(left: 20.0),
-                child: Text('Best Sellers', style: Styles.textStyle18),
+                child: Text('Newest Books', style: Styles.textStyle18),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
             ],
           ),
         ),
-        const BookSliverList(),
+        BookSliverList(),
       ],
     );
   }
 }
-
-//You can use this instead of VSliverListBuilder, but
-//it wont display all the items
-// const SliverFillRemaining(
-//   child: Padding(padding: kPadding, child: VListViewBuilder()),
-// ),
+// This widget builds the body of the home view, including the custom app bar,
+// featured books list, and a sliver list of the newest books.

@@ -8,7 +8,7 @@ class PlaceHolderImage extends StatelessWidget {
     return Stack(
       children: [
         Opacity(opacity: 0.2, child: Container(color: Colors.white)),
-        Center(child: Icon(Icons.question_mark_outlined, size: 70)),
+        const Center(child: Icon(Icons.question_mark_outlined, size: 70)),
       ],
     );
   }

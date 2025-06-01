@@ -1,9 +1,12 @@
 // import 'package:bookly_app/constants.dart';
-import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/core/utils/app_router.dart';
+import 'package:bookly_app/core/widgets/custom_failure_widget.dart';
+import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
 import 'package:bookly_app/features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class FeaturedBooksListBuilder extends StatelessWidget {
   const FeaturedBooksListBuilder({super.key});
@@ -16,16 +19,23 @@ class FeaturedBooksListBuilder extends StatelessWidget {
           return SizedBox(
             height: MediaQuery.of(context).size.height * .3,
             child: ListView.builder(
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               itemCount: state.books.length,
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 8.0),
-                  child: CustomBookImage(
-                    imgURL:
-                        state.books[index].volumeInfo.imageLinks?.thumbnail ??
-                        '',
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: GestureDetector(
+                    onTap:
+                        () => GoRouter.of(context).push(
+                          AppRouter.kBookDetailsView,
+                          extra: state.books[index],
+                        ),
+                    child: CustomBookImage(
+                      imgURL:
+                          state.books[index].volumeInfo.imageLinks?.thumbnail ??
+                          '',
+                    ),
                   ),
                 );
               },
@@ -38,40 +48,5 @@ class FeaturedBooksListBuilder extends StatelessWidget {
         }
       },
     );
-  }
-}
-
-class CustomFailureWidget extends StatelessWidget {
-  const CustomFailureWidget({super.key, required this.errMsg});
-  final String errMsg;
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30.0),
-          child: Container(
-            height: 100,
-            width: 400,
-            padding: const EdgeInsets.all(30),
-            decoration: BoxDecoration(
-              color: Colors.white10,
-              borderRadius: BorderRadius.circular(16),
-            ),
-          ),
-        ),
-        Center(child: Text(errMsg, style: Styles.textStyle18)),
-      ],
-    );
-  }
-}
-
-class CustomLoadingIndicator extends StatelessWidget {
-  const CustomLoadingIndicator({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: CircularProgressIndicator());
   }
 }
