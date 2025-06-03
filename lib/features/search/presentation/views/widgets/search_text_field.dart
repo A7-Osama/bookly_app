@@ -3,9 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SearchTextField extends StatelessWidget {
-  const SearchTextField({super.key, this.onSubmitted, this.onChanged});
+  const SearchTextField({
+    super.key,
+    this.onSubmitted,
+    this.onChanged,
+    this.onTap,
+  });
   final void Function(String)? onSubmitted;
   final void Function(String)? onChanged;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -13,17 +19,11 @@ class SearchTextField extends StatelessWidget {
       child: TextField(
         style: const TextStyle(color: Colors.black),
         enabled: true,
-        onChanged: onChanged, // => _updateCityName(context, data),
-        onSubmitted:
-            onSubmitted, //(value) {}, //async => await _weatherFetch(context, value),
-
+        onChanged: onChanged,
+        onSubmitted: onSubmitted,
         decoration: InputDecoration(
           suffixIcon: GestureDetector(
-            onTap: () {},
-            // async => await _weatherFetch(
-            //   context,
-            //   BlocProvider.of<WeatherCubit>(context).cityName ?? '',
-            // ),
+            onTap: onTap,
             child: const Opacity(
               opacity: 0.6,
               child: Icon(
@@ -35,8 +35,6 @@ class SearchTextField extends StatelessWidget {
           ),
           filled: true,
           fillColor: Colors.white,
-          // label: const Text('Search'),
-          // labelStyle: TextStyle(fontWeight: FontWeight.bold),
           hintText: 'Search for a book ...',
           hintStyle: const TextStyle(
             fontWeight: FontWeight.w400,

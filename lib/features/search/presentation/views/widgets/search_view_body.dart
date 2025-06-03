@@ -7,33 +7,23 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key});
-
   @override
   Widget build(BuildContext context) {
+    late String searchQuery;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Keeping the search field fixed at the top
           SearchTextField(
-            onChanged:
-                (data) =>
-                // Triggering the search when the user submits a query
-                BlocProvider.of<SearchBooksCubit>(
-                  context,
-                ).searchQBooks(searchQuery: (data.isEmpty ? '' : data)),
-            onSubmitted:
-                (data) =>
-                // Triggering the search when the user submits a query
-                BlocProvider.of<SearchBooksCubit>(
-                  context,
-                ).searchQBooks(searchQuery: (data.isEmpty ? '' : data)),
+            onTap: () => searchBooksByQuery(context, searchQuery),
+            onChanged: (data) {
+              searchQuery = data;
+              searchBooksByQuery(context, data);
+            },
+            onSubmitted: (data) => searchBooksByQuery(context, data),
           ),
           const SizedBox(height: 16),
-          // Container(height: 10, color: kPrimaryColor),
-          // const SizedBox(height: 10), // Optional spacing
-          // Wrapping the list in Expanded to ensure it takes remaining space and scrolls
           const Expanded(
             child: CustomScrollView(
               slivers: [
@@ -48,4 +38,10 @@ class SearchViewBody extends StatelessWidget {
       ),
     );
   }
+}
+
+void searchBooksByQuery(BuildContext context, String data) {
+  BlocProvider.of<SearchBooksCubit>(
+    context,
+  ).searchQBooks(searchQuery: (data.isEmpty ? '' : data));
 }
