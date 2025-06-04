@@ -1,5 +1,8 @@
 import 'package:bookly_app/constants.dart';
+import 'package:bookly_app/core/utils/bookly_helpers.dart';
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/core/widgets/about_us_alert_dialog.dart';
+import 'package:bookly_app/core/widgets/custom_txt_btn.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/featured_books_list_builder.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_sliver_list.dart';
@@ -12,10 +15,10 @@ class HomeViewBody extends StatelessWidget {
   // a list of featured books, and a sliver list of the newest books.
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
-      physics: BouncingScrollPhysics(),
+    return CustomScrollView(
+      physics: const BouncingScrollPhysics(),
       slivers: [
-        SliverToBoxAdapter(
+        const SliverToBoxAdapter(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -30,10 +33,21 @@ class HomeViewBody extends StatelessWidget {
             ],
           ),
         ),
-        BookSliverList(),
+        const BookSliverList(),
+        const SliverToBoxAdapter(child: SizedBox(height: 20)),
+        CustomTxtBtn(
+          backgroundColor: Colors.transparent,
+          textColor: kSecondaryColor,
+          text: 'About The Developer',
+          onPressed:
+              () => Bookly.showAlertDialog(context, const AboutUsWidget()),
+          fontSize: 14,
+        ),
+        const SliverToBoxAdapter(child: SizedBox(height: 25)),
       ],
     );
   }
 }
+
 // This widget builds the body of the home view, including the custom app bar,
 // featured books list, and a sliver list of the newest books.

@@ -1,6 +1,7 @@
 import 'package:bookly_app/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:bookly_app/core/utils/bookly_helpers.dart';
 
 class SearchTextField extends StatelessWidget {
   const SearchTextField({
@@ -44,21 +45,10 @@ class SearchTextField extends StatelessWidget {
             horizontal: 16,
             vertical: 15,
           ),
-          border: border(),
-          enabledBorder: border(),
-          focusedBorder: border(),
+          border: Bookly.border(null),
+          enabledBorder: Bookly.border(null),
+          focusedBorder: Bookly.border(null),
         ),
-      ),
-    );
-  }
-
-  OutlineInputBorder border() {
-    return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(16),
-      borderSide: const BorderSide(
-        color: kPrimaryColor,
-        width: 2,
-        style: BorderStyle.solid,
       ),
     );
   }

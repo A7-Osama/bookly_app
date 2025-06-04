@@ -1,5 +1,5 @@
-import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
+import 'package:bookly_app/core/utils/bookly_helpers.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_image.dart';
@@ -20,7 +20,7 @@ class BookSliverListItem extends StatelessWidget {
         height: 125,
         child: Row(
           children: [
-            CustomBookImage(imgURL: getImageUrl(bookModel)),
+            CustomBookImage(imgURL: Bookly.getImageUrl(bookModel)),
             const SizedBox(width: 30),
             Expanded(
               child: Column(
@@ -29,15 +29,15 @@ class BookSliverListItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * .55,
                     child: Text(
-                      getBookTitle(bookModel),
-                      style: getBookTitleTextStyle(bookModel),
+                      Bookly.getBookTitle(bookModel),
+                      style: Bookly.getBookTitleTextStyle(bookModel),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   const SizedBox(height: 3),
                   Text(
-                    getBookAuthors(bookModel),
+                    Bookly.getBookAuthors(bookModel),
                     maxLines: 1,
                     style: Styles.textStyle14.copyWith(
                       color: Colors.white.withAlpha(128),
@@ -66,28 +66,5 @@ class BookSliverListItem extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  TextStyle getBookTitleTextStyle(BookModel book) {
-    return isAr(text: book.volumeInfo.title ?? '')
-        ? Styles.textStyle18.copyWith(fontFamily: kGTSectraFine)
-        : Styles.textStyle20.copyWith(fontFamily: kGTSectraFine);
-  }
-
-  String getImageUrl(BookModel book) {
-    return book.volumeInfo.imageLinks?.thumbnail ?? kCustomFailureWidgetImg;
-  }
-
-  String getBookTitle(BookModel book) {
-    return book.volumeInfo.title ?? 'Unknown';
-  }
-
-  String getBookAuthors(BookModel book) {
-    return book.volumeInfo.authors?.join(', ') ?? 'Unknown';
-  }
-
-  bool isAr({required String text}) {
-    if (text.isNotEmpty) return (RegExp(r'^[\u0600-\u06FF]').hasMatch(text));
-    return false;
   }
 }

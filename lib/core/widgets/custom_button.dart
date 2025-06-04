@@ -10,16 +10,17 @@ class CustomButton extends StatelessWidget {
     required this.text,
     required this.onPressed,
     this.fontSize,
+    this.height,
   });
   final Color backgroundColor, textColor;
   final BorderRadius borderRadius;
   final String text;
-  final double? fontSize;
+  final double? fontSize, height;
   final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 48,
+      height: height ?? 48,
       child: TextButton(
         onPressed: onPressed,
         // clipBehavior: Clip.antiAlias,
