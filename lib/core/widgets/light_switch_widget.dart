@@ -4,16 +4,16 @@ import 'package:flutter/material.dart';
 class LightSwitchWidget extends StatelessWidget {
   const LightSwitchWidget({
     super.key,
-    required this.onLPressed,
+    required this.onPressed,
     required this.foreColor,
   });
 
-  final void Function()? onLPressed;
+  final void Function()? onPressed;
   final Color foreColor;
   @override
   Widget build(BuildContext context) {
     return CustomButton(
-      onPressed: onLPressed,
+      onPressed: onPressed,
       text: 'Download',
       backgroundColor: foreColor,
       textColor: Colors.black,

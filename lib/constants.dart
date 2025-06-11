@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 const kPrimaryColor = Color(0xff100B20);
 const kSecondaryColor = Color(0xffEF8262);
@@ -14,3 +15,10 @@ const kHomeViewQone = 'novel';
 const kHomeViewQtwo = 'Love';
 const kSearchViewQone = '\t\t\t\t\t\tNo books yet! \nStart searching some!';
 const kSearchViewQtwo = 'Please enter a search term.';
+const kSizedBoxh3 = SizedBox(height: 3);
+const kDivider = Divider(
+  endIndent: 40,
+  indent: 40,
+  color: Color(0x40ffffff),
+  thickness: 1,
+);

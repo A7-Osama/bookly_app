@@ -1,9 +1,9 @@
 import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/widgets/custom_failure_widget.dart';
-import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
 import 'package:bookly_app/features/home/presentation/manager/similar_books_cubit/similar_books_cubit.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_image.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/similar_featured_books_shimmer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -42,7 +42,6 @@ class SimilarFeaturedBooksLVB extends StatelessWidget {
                                 .imageLinks
                                 ?.thumbnail ??
                             kCustomFailureWidgetImg,
-                        //'https://via.placeholder.com/150', // CPLT: Default placeholder
                       ),
                     ),
                   );
@@ -55,7 +54,8 @@ class SimilarFeaturedBooksLVB extends StatelessWidget {
             errMsg: state.errMsg,
           ); // CPLT: No SliverToBoxAdapter
         } else {
-          return const CustomLoadingIndicator(); // CPLT: No SliverToBoxAdapter
+          return const SimilarFeaturedBooksShimmer();
+          // CustomLoadingIndicator(); // CPLT: No SliverToBoxAdapter
         }
       },
     );

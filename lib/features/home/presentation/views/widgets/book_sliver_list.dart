@@ -1,9 +1,10 @@
-import 'package:bookly_app/core/widgets/custom_failure_widget.dart';
-import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
-import 'package:bookly_app/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/book_sliver_list_item.dart';
 import 'package:flutter/material.dart';
+import 'package:bookly_app/constants.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:bookly_app/core/widgets/custom_failure_widget.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/book_sliver_list_item.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/book_sliver_list_shimmer.dart';
+import 'package:bookly_app/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 
 class BookSliverList extends StatelessWidget {
   const BookSliverList({super.key});
@@ -18,10 +19,16 @@ class BookSliverList extends StatelessWidget {
               childCount: state.books.length,
               (context, index) => Padding(
                 padding: const EdgeInsets.symmetric(
-                  vertical: 10.0,
+                  vertical: 7,
                   horizontal: 20,
                 ),
-                child: BookSliverListItem(bookModel: state.books[index]),
+                child: Column(
+                  children: [
+                    BookSliverListItem(bookModel: state.books[index]),
+                    const SizedBox(height: 5),
+                    const SizedBox(height: 40, child: kDivider),
+                  ],
+                ),
               ),
             ),
           );
@@ -30,7 +37,7 @@ class BookSliverList extends StatelessWidget {
             child: CustomFailureWidget(errMsg: state.errMsg),
           );
         } else {
-          return const SliverToBoxAdapter(child: CustomLoadingIndicator());
+          return const BookSliverListShimmer();
         }
       },
     );

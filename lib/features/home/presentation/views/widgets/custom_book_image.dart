@@ -1,6 +1,7 @@
 // import 'package:bookly_app/core/utils/assets_data.dart';
-import 'package:bookly_app/core/widgets/error_image.dart';
+// import 'package:bookly_app/core/widgets/error_image.dart';
 import 'package:bookly_app/core/widgets/place_holder_image.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/custom_book_image_shimmer.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,8 @@ class CustomBookImage extends StatelessWidget {
         child: CachedNetworkImage(
           fit: BoxFit.fill,
           imageUrl: imgURL,
-          placeholder: (context, url) => const ErrorImage(),
+          placeholder:
+              (context, url) => const CustomBookImageShimmer(), //ErrorImage(),
           errorWidget: (context, url, error) => const PlaceHolderImage(),
         ),
       ),
