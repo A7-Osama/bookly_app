@@ -31,7 +31,7 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<Failures, List<BookModel>>> fetchFeaturedBooks() async {
+  Future<Either<Failures, List<BookModel>>> fetchFeaturedBooksRepo() async {
     try {
       var data = await apiService.get(
         endPoint:
